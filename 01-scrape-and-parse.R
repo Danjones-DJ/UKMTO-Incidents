@@ -25,7 +25,7 @@ try(
 # Set-up driver on Firefox
 
 rD = rsDriver(
-  browser    = "firefox",
+  browser    = "chrome",
   port       = netstat::free_port(),
   phantomver = NULL,
   chromever  = NULL
