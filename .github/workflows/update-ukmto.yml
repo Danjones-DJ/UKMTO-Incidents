@@ -23,4 +23,4 @@ jobs:
           Rscript -e 'pacman::p_load(RSelenium, rvest, tidyverse, stringr, netstat, lubridate, maps, rnaturalearth, sf, tidygeocoder, geosphere, googlesheets4, googledrive)'
 
       - name: Run tracker
-        run: Rscript run_all.R
+        run: xvfb-run -a Rscript run_all.R
