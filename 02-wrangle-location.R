@@ -113,7 +113,10 @@ places <- ukmto_cc %>%
       !is.na(place) & !is.na(country) ~ str_c(place, ", ", country),
       !is.na(place) ~ place,
       TRUE ~ country
-    )
+    ),
+    address = str_squish(
+      str_remove(address, "^\\s*,\\s*")
+      )
   ) %>%
   geocode( # Extract Long/Lat using geocode function
     address = address,
@@ -123,7 +126,6 @@ places <- ukmto_cc %>%
   )
 
 # Join co-ords alongside bearing
-
 ukmto_geo = ukmto_cc %>%
   left_join(places) %>%
   mutate(bearings = bearings[direction]) %>%
