@@ -23,7 +23,8 @@ final_data = updated_data %>%
     days_since = as.numeric(Sys.Date() - date),
     recency_weight = 1 / (days_since + 1)
   ) %>%
-  arrange(desc(date))
+  arrange(desc(date)) %>%
+  filter(days_since <= 90)
 
 # Write sheet
 sheet_write(data = final_data, ss = SHEET_URL, sheet="incidents")
