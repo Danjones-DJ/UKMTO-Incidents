@@ -9,9 +9,10 @@ pacman::p_load(rvest,
                lubridate,
                maps,
                rnaturalearth, 
-               sf,
                tidygeocoder, geosphere, dplyr
 )
+
+library(sf)
 
 # Load data
 ukmto_raw = read_rds("data/UKMTO_raw.rds")
@@ -25,7 +26,7 @@ all_cities = world.cities %>%
 city_names = str_c("\\b(", str_c(all_cities, collapse = "|"), ")\\b")
 
 # Countries
-all_countries = ne_countries(returnclass = "sf") %>% st_drop_geometry() %>%
+all_countries = ne_countries(returnclass = "sf") %>% sf::st_drop_geometry() %>%
   select(country_full = admin,
          country_short = name,
          iso3 = iso_a3,
