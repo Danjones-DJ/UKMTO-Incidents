@@ -1,4 +1,9 @@
+# R
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+# Credentials
+keys/
+service-account.json
