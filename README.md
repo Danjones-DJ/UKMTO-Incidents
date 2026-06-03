@@ -1,0 +1,1 @@
+The goal of this project is to practice harvesting live conflict data, clean and format this to google sheets, where I can then utilise Datawrapper/Flourish to create thematic maps regarding international conflict.
