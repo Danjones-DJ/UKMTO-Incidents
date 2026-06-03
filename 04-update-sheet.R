@@ -1,3 +1,13 @@
+pacman::p_load(googlesheets4, tidyverse, lubridate)
+
+writeLines(
+  Sys.getenv("GSHEET_AUTH_JSON"),
+  "service-account.json"
+)
+
+gs4_auth(path = "service-account.json")
+
+
 # Packages
 
 pacman::p_load(
